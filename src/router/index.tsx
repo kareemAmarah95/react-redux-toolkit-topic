@@ -1,8 +1,14 @@
-import { Route, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
 import PageNotFound from "../pages/PageNotFound";
 import RootLayout from "../pages/Layout";
 import ErrorHandler from "../components/errors/ErrorHandler";
 import HomePage from "../pages";
+import Cart from "../pages/Cart";
+import SingleProduct from "../pages/singleProduct";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -10,8 +16,10 @@ const router = createBrowserRouter(
       {/* Root Layout */}
       <Route path="/" element={<RootLayout />} errorElement={<ErrorHandler />}>
         <Route index element={<HomePage />} />
+        <Route path="cart" element={<Cart />} />
+        {/* what to write here ?  */}
+        <Route path="product/:productId" element={<SingleProduct />} />
       </Route>
-
       {/* Page Not Found */}
       <Route path="*" element={<PageNotFound />} />
     </>
